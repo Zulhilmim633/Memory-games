@@ -1,0 +1,94 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    /* border: 1px dotted red; */
+}
+
+body {
+    -webkit-touch-callout: none;
+    /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;
+    /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
+    /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #E4E4E4;
+    background-image: linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    /* text-transform:uppercase; */
+    width: 100%;
+}
+
+html {
+    height: 100dvh;
+}
+
+.nav {
+    filter: invert(92%) sepia(19%) saturate(509%) hue-rotate(258deg) brightness(115%) contrast(96%);
+    scale: 0.5;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.app .cover_nav {
+    display: none;
+}
+
+.app .cover_nav .close {
+    font-size: 2rem;
+    position: absolute;
+    left: 1.5rem;
+    top: .5rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.app .cover_nav.active {
+    display: flex !important;
+    flex-direction: column;
+    background-color: #171717;
+    width: 99.5dvw;
+    height: 100%;
+    color: #000;
+    position: absolute;
+    z-index: 15;
+    justify-content: start;
+    align-items: center;
+}
+
+.cover_nav a {
+    text-decoration: none;
+    color: #fbfcfc;
+}
+
+.cover_nav .close {
+    color: #fbfcfc;
+}
+
+.app .cover_nav.active a:nth-child(2) {
+    margin-top: 4rem;
+}
+
+.app .cover_nav.active a {
+    padding: 13px 0 13px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        /* background-image: linear-gradient(to bottom, #585858 0%, #1B1B1B 51%); */
+        background: #171717;
+    }
+}

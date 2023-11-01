@@ -1,0 +1,52 @@
+.color_theme {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 18px;
+}
+
+.color_picker {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    background-color: transparent;
+    padding: 0;
+}
+
+input[type="color"],input[type="color"]::-webkit-color-swatch {
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    width: 30px;
+    scale: .66;
+    height: 28px;
+}
+
+.color_selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.color {
+    padding: 5px;
+    border-radius: 10px;
+    height: 0;
+}
+
+.colors {
+    margin: 0;
+    padding: 0;
+}
+
+.colors img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 13px;
+    height: 13px;
+}

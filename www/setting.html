@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/setting.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="cover_nav">
+            <span class="close">X</span>
+            <a class="button" href="./index.html">Home</a>
+            <a class="button" href="./account.html">Profile</a>
+            <a class="button" href="./setting.html">Settings</a>
+        </div>
+        <div class="nav">
+            <img src="img/list.png" alt="" srcset="">
+        </div>
+        <div class="color_theme">
+            <h2 style="width: fit-content;margin-left: 19px;color: #fbfcfc;">Color Theme</h2>
+            <div class="color_selector">
+                <div class="color" attr-color="#FF00FF"></div>
+                <div class="color" attr-color="#40E0D0"></div>
+                <div class="color" attr-color="#DC143C"></div>
+                <div class="color" attr-color="#32CD32"></div>
+                <div class="color" attr-color="#F4C542"></div>
+                <div class="color" attr-color="#0047AB"></div>
+                <div class="color" attr-color="#FF6600"></div>
+                <!-- <div class="color_picker"> -->
+                <input type="color" name="color">
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script>
+        const colors = document.querySelectorAll(".color");
+        let save_theme = localStorage.getItem("theme")
+        const picker = document.querySelector(".color_theme > div > input[type=color]")
+        save_theme != null ? picker.value = save_theme : picker.value = "#FFFFFF"
+        for (let color of colors) {
+            const col = color.getAttribute("attr-color")
+            color.style.border = `3px solid ${col}`
+            color.style.background = col
+            if (save_theme != null && save_theme == col) {
+                color.style.border = "4px solid grey"
+            } else { color.style.border = "none" }
+            color.addEventListener("click", (e) => {
+                colors.forEach(othe => {
+                    othe.style.border = "none"
+                })
+                color.style.border = "4px solid grey"
+                picker.value = col
+
+                localStorage.setItem('theme', e.target.getAttribute("attr-color"))
+            })
+        }
+
+        picker.addEventListener("change", (e) => {
+            e.preventDefault()
+            localStorage.setItem('theme', e.target.value)
+            colors.forEach(othe => {
+                othe.style.border = "none"
+            })
+            console.log(e.target.value);
+        })
+    </script>
+</body>
+
+</html>

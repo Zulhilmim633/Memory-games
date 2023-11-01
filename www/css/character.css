@@ -1,0 +1,60 @@
+div.modal.visible{
+    display: block !important;
+    height: 22dvh;
+    position: absolute;
+    z-index: 2;
+    background: #474747;
+    left: 19dvw;
+    width: 64dvw;
+    text-align: center;
+    height: 10em;
+    border-radius: 15px;
+    color: #FBFCFC;
+}
+
+div.modal span {
+    padding: 6px;
+    cursor: pointer;
+    margin-right: 1rem;
+    color: #fbfcfc;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+div.modal span:last-child{
+    margin: 0;
+}
+
+.gameplay {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameplay .countdown {
+    font-size: 30px;
+    color: #fcfcfc;
+}
+
+.gameplay input {
+    margin-top: 4rem;
+    max-width: 74dvw;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    background: none;
+    color: #fcfcfb;
+    border-bottom: 1px solid #fcfcfb;
+}
+
+.viewport {
+    padding: 2em;
+    margin: 1em 0 3rem 0;
+    max-width: 74dvw;
+    word-wrap: break-word;
+    font-size: 1rem;
+    color: #fcfcfb;
+    text-align: center;
+    border: 2px solid gray;
+}

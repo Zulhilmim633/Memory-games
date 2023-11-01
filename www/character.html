@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character</title>>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/character.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="cover_nav">
+            <span class="close">X</span>
+            <a class="button" href="./index.html">Home</a>
+            <a class="button" href="./account.html">Profile</a>
+            <a class="button" href="./setting.html">Settings</a>
+        </div>
+        <div class="nav">
+            <img src="img/list.png" alt="" srcset="">
+        </div>
+        <div class="modal visible" style="display: none;">
+            <h2>Select your gameplay mode</h2>
+            <span onclick="dificulty(this)" style="background-color: #028b02;">Easy</span>
+            <span onclick="dificulty(this)" style="background-color: #ffa500;">Medium</span>
+            <span onclick="dificulty(this)" style="background-color: #d10303;">Hard</span>
+        </div>
+        <div class="gameplay">
+            <div class="countdown"></div>
+            <div class="viewport"></div>
+            <input style="display: none;" type="text" oninput="update(this)">
+            
+        </div>
+    </div>
+    <script src="./js/character.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
