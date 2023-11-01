@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.memorygame" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Memory Test</name>
+    <description>Memory test for human brain</description>
+    <author email="query@zulhilmi.xyz" href="https://www.zulhilmi.xyz">
+        Dev's
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <platform name="android">
+        <icon monochrome="www/img/mipmap-hdpi/ic_launcher_monochrome.png"
+        background="www/img/mipmap-hdpi/ic_launcher_background.png" density="hdpi"
+        foreground="www/img/mipmap-hdpi/ic_launcher_foreground.png" src="www/img/mipmap-hdpi/ic_launcher.png" />
+        <icon monochrome="www/img/mipmap-mdpi/ic_launcher_monochrome.png"
+            background="www/img/mipmap-mdpi/ic_launcher_background.png" density="mdpi"
+            foreground="www/img/mipmap-mdpi/ic_launcher_foreground.png" src="www/img/mipmap-mdpi/ic_launcher.png" />
+        <icon monochrome="www/img/mipmap-xhdpi/ic_launcher_monochrome.png"
+            background="www/img/mipmap-xhdpi/ic_launcher_background.png" density="xhdpi"
+            foreground="www/img/mipmap-xhdpi/ic_launcher_foreground.png" src="www/img/mipmap-xhdpi/ic_launcher.png" />
+        <icon monochrome="www/img/mipmap-xxhdpi/ic_launcher_monochrome.png"
+            background="www/img/mipmap-xxhdpi/ic_launcher_background.png" density="xxhdpi"
+            foreground="www/img/mipmap-xxhdpi/ic_launcher_foreground.png" src="www/img/mipmap-xxhdpi/ic_launcher.png" />
+        <icon monochrome="www/img/mipmap-xxxhdpi/ic_launcher_monochrome.png"
+            background="www/img/mipmap-xxxhdpi/ic_launcher_background.png" density="xxxhdpi"
+            foreground="www/img/mipmap-xxxhdpi/ic_launcher_foreground.png" src="www/img/mipmap-xxxhdpi/ic_launcher.png" />
+    </platform>
+</widget>
