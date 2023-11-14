@@ -27,8 +27,13 @@ node_modules/
 
 # Ignore build configuration files
 *build.json
+*.pepk
+*.jks
 
 # Unecesery upload
 *.pdf
 *.zip
 *.7zip
+
+# Ignore application
+*.apk
