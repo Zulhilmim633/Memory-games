@@ -2,11 +2,11 @@
   "name": "io.memorygame",
   "displayName": "Memory Game",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "description": "Apache cordova application.",
   "scripts": {
-    "rebuild": "cordova platform remove android && cordova platform add android",
-    "build": "cordova platform remove android && cordova platform add android && cordova run android --emulator",
+    "publish": "cordova build android --release && node index",
+    "create": "cordova platform remove android && cordova platform add android",
+    "build": "cordova platform remove android && cordova platform add android && cordova build android",
     "my_device": "cordova platform remove android && cordova platform add android && cordova run android"
   },
   "keywords": [
