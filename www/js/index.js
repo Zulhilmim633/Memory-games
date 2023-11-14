@@ -16,17 +16,37 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+const games_page = ["Typing", "Traces"]
+const token = localStorage.getItem("token")
 
-// Wait for the deviceready event before using any of Cordova's device APIs.
-// See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+const account = localStorage.getItem("account")
+if (account == null) {
+    if (document.title != "Login") {
+        window.location.href = "./login.html"
+    }
+}
 
-let clickCount = 0
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+// if (window.location.host == "127.0.0.1:5500") {
+//     if (games_page.includes(document.title)) {
+//         const modal = document.querySelector(".modal")
+//         modal.addEventListener("click", (e) => {
+//             if (e.target != modal.querySelector(".wrap") && e.target.parentNode != modal.querySelector(".wrap")) {
+//                 modal.remove()
+//             }
+//         })
+//     }
+// } else {
+    if (games_page.includes(document.title)) {
+        const modal = document.querySelector(".modal")
+        modal.addEventListener("click", return_home)
+    }
+// }
+
+function return_home(e){
+    if (e.target != modal.querySelector(".wrap") && e.target.parentNode != modal.querySelector(".wrap")) {
+        window.location.href = "./index.html"
+    }
 }
 
 const navigate = document.querySelector(".cover_nav")
@@ -34,9 +54,9 @@ const closing = document.querySelector(".closing")
 
 document.querySelector(".nav").addEventListener("click", (e) => {
     const btns = navigate.querySelectorAll(".button")
-    for (let btn of btns){
-        if(btn.innerText == document.title){
-            let save_theme = localStorage.getItem("theme")
+    for (let btn of btns) {
+        if (btn.innerText == document.title) {
+            let save_theme = localStorage.getItem("theme") || getPreferences("theme")
             btn.style.color = save_theme == null ? "#fbfcfc" : save_theme
             btn.style.backgroundColor = "#474747"
         }
@@ -46,6 +66,7 @@ document.querySelector(".nav").addEventListener("click", (e) => {
 })
 
 
+let clickCount = 0
 document.addEventListener("backbutton", (ex) => {
     ex.preventDefault()
     if (!navigate.classList.contains("active")) {
@@ -60,13 +81,13 @@ document.addEventListener("backbutton", (ex) => {
             timeout = setTimeout(() => {
                 clickCount = 0; // Reset the click count if the timer expires
 
-                let inter = setInterval(()=>{
+                let inter = setInterval(() => {
                     closing.style.opacity -= 0.1
-                    if(closing.style.opacity <= 0){
+                    if (closing.style.opacity <= 0) {
                         closing.style.display = "none"
                         clearInterval(inter)
                     }
-                },35)
+                }, 35)
 
             }, 3000); // 5000 milliseconds = 5 seconds
         }
@@ -87,13 +108,60 @@ document.querySelector(".app > .cover_nav > .close").addEventListener("click", (
     navigate.classList.remove("active")
 })
 
-
 const need_change = document.querySelectorAll(".follow_theme")
-need_change.forEach((item)=>{
+need_change.forEach((item) => {
     follow_theme(item)
 })
 
-function follow_theme(e){
-    const theme = localStorage.getItem("theme")
+function get_score(key) {
+    const pre = JSON.parse(localStorage.getItem("scores"))
+    return pre[key]
+}
+
+function follow_theme(e) {
+    const theme = localStorage.getItem("theme") || getPreferences("theme")
     e.style.color = theme != null ? theme : "#FBFCFC"
+}
+
+function setPreferences(key, value) {
+    const pre = JSON.parse(localStorage.getItem("configuration"))
+    pre[key] = value
+    localStorage.setItem("configuration", JSON.stringify(pre))
+}
+
+function getPreferences(key) {
+    const pre = JSON.parse(localStorage.getItem("configuration"))
+    return pre[key]
+}
+
+function preferences() {
+    return JSON.parse(localStorage.getItem("configuration"))
+}
+
+function save_score() {
+    let score = JSON.parse(localStorage.getItem("scores"))
+    console.log(score)
+    fetch(`${domain}/api/leaderboard/update`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            data: score
+        })
+    })
+}
+
+async function updatePreferences() {
+    fetch(`${domain}/api/account/config`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            config: preferences()
+        })
+    })
 }

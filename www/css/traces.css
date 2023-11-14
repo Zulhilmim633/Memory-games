@@ -1,0 +1,60 @@
+.cont {
+    scale: 2;
+}
+
+.countdown {
+    margin-bottom: 1rem;
+    scale: .5;
+}
+
+table,
+td {
+    border: 1.25px solid #fff;
+    border-collapse: collapse;
+    padding: 6px;
+}
+
+td {
+    width: 10px;
+    text-align: center;
+    height: 10px;
+}
+
+td.initiate {
+    background-color: green !important;
+    animation: blink 4.5s linear 0s infinite normal none;
+}
+/* 
+td.next {
+    background-color: rgb(0, 9, 128);
+} */
+
+td.active_click {
+    background-color: rgb(30, 187, 30);
+}
+
+td.wrong_click {
+    background-color: rgb(240, 48, 48);
+}
+
+/* td.lastnode {
+    border: 2px solid gold;
+} */
+
+td.nextstep.possible{
+    border: 2px solid rgb(25, 0, 255);
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0.7;
+    }
+}

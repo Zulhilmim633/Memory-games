@@ -1,0 +1,94 @@
+/* * {
+    border: 2px dotted red;
+} */
+
+html {
+    height: 100dvh;
+}
+
+.app {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app form {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    scale: 1.6;
+    border: 2px solid grey;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.app form input {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.app .account_type div {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly
+}
+
+.app .account_type>div>button {
+    scale: 0.9;
+    font-size: 0.8rem;
+    width: 10rem;
+    padding: 5px 1px 5px 1px
+}
+
+.app .login div,
+.app .register div {
+    display: flex;
+    width: 100%;
+    justify-content: center
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    z-index: 9;
+}
+
+.back div.modal {
+    display: grid;
+    z-index: 10;
+    background-color: #3d3d3d;
+    padding-bottom: 1rem;
+    width: 100dvw;
+}
+
+.back div.modal h1 {
+    text-decoration: underline;
+    text-align: start;
+    width: 90dvw;
+    justify-self: center;
+}
+
+.back div.modal p {
+    margin: 0;
+    font-size: 1.4rem;
+    width: 90dvw;
+    justify-self: center;
+    text-align: start;
+    word-wrap: break-word;
+}
+
+.back div.modal div {
+    margin-top: 1.2rem;
+    justify-self: center;
+    width: 90dvw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.back div.modal div button {
+    padding: 10px 30px;
+}
